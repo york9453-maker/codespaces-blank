@@ -1,6 +1,8 @@
 import {airportScenes}from "./scenes/airport.js";
+import { taxiScenes } from "./scenes/taxi.js";
 const scenes = {
-    ...airportScenes
+    ...airportScenes,
+    ...taxiScenes
 };
 
 function showScene(sceneName) {
