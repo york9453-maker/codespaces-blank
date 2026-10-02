@@ -1,36 +1,43 @@
-html {
-  height: 100%;
-  background: 50% 50% no-repeat
-    url('data:image/svg+xml,<svg viewBox="-20 -5 60 40" width="140" xmlns="http://www.w3.org/2000/svg" opacity="0.2"><path d="M1 8l11-7 11 7v8l-11 7-11-7zm0 0l11 8 11-8m0 8L12 8 1 16M12 1v7m0 8v7" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/><text x="-12" y="32" font-size="5" font-family="monospace" fill="currentColor">Built on CodePen</text></svg>');
-}
 .hint {
   color: #8b5cf6;
   border-bottom: 2px dotted;
   cursor: help;
   position: relative;
 }
+
 .hint:hover::after {
   content: attr(data-hint);
   position: absolute;
+
   background: white;
   padding: 6px 10px;
   border-radius: 6px;
 
+  /* Put the clue above the word */
   bottom: 100%;
-left: 50%;
-transform: translateX(-50%);
+  
+  /* Start the clue at the word instead of centering it */
+  left: 0;
+  transform: none;
 
-white-space: nowrap;
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-margin-bottom: 8px;
+  /* Allow longer clues to wrap */
+  width: max-content;
+  max-width: 130px;
+  white-space: normal;
+
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+
+  z-index: 9999;
 }
+
 .hint:hover::before {
   content: "";
   position: absolute;
 
   bottom: calc(100% + 2px);
-  left: 50%;
-  transform: translateX(-50%);
+  left: 10px;
 
   width: 0;
   height: 0;
@@ -38,4 +45,6 @@ margin-bottom: 8px;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 6px solid red;
+
+  z-index: 10000;
 }
